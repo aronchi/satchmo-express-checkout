@@ -1,0 +1,12 @@
+# Installation:
+
+1) Copy the source to your project dir
+
+2) add the module to your local_settings.py:
+   'CUSTOM_PAYMENT_MODULES' : [PROJECTNAME + '.payment.modules.paypal_express',],
+
+3) Configure it in your http://www.store.com/settings
+
+4) add this button/link to your base_cart.html:
+  <a href="/checkout/paypal_express/"><img src="https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif" alt="Pay With Paypal and Credit Cards" title="Pay With Paypal and Credit Cards"></a>
+
