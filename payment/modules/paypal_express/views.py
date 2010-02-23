@@ -418,13 +418,16 @@ def paypal_express_pay(request):
         # Retrieving notes from paypal NOTE field
         if 'NOTE' in response_getDetails:
             notes_changed = True
-            notes = notes + _('---Comment via Paypal EXPRESS CHECKOUT---') + u'\n' + response_getDetails['NOTE']
+	    
+	    response_notes = response_getDetails['NOTE'][0] # If I get some problems, the error will include notes if I put it in a variable.
+            notes = u"\n%s \n%s \n%s" % (notes, _('---Comment via Paypal EXPRESS CHECKOUT---') ,response_notes )
             log.debug("Saved order notes from Paypal Express Checkout")
         
         # Retrieving notes from confirmation page
         if (request.method == "POST") and ('note' in request.POST) and (request.POST['note'] != ""):
             notes_changed = True
-            notes = notes + u'\n\n'  + _('---Notes sent by confirm Order Form---') + u'\n' + request.POST['note']
+            #notes = notes + u'\n\n'  + _('---Notes sent by confirm Order Form---') + u'\n' + request.POST['note']
+            notes = u"%s \n\n%s \n %s" % (notes,  _('---Notes sent by confirm Order Form---'), request.POST['note'])
             log.debug("Saved order notes from Confirm Order Page")    
         
         # If I must add some notes to my order
