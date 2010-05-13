@@ -8,5 +8,5 @@
 3) Configure it in your http://www.store.com/settings
 
 4) add this button/link to your base_cart.html:
-  <a href="/checkout/paypal_express/"><img src="https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif" alt="Pay With Paypal and Credit Cards" title="Pay With Paypal and Credit Cards"></a>
+  <a href="{% url PAYPAL_EXPRESS_satchmo_checkout %}"><img src="https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif" alt="Pay With Paypal and Credit Cards" 
 
